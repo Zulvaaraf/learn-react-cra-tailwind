@@ -1,28 +1,21 @@
 import './App.css';
-import { Link, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import BlogDetails from './pages/BlogDetails';
+import Card from './pages/Card';
 
 function App() {
+  function search(x) {
+    console.log(x);
+  }
+
   return (
-    <>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="profile">Profile</Link>
-        <Link to="blog">Blog</Link>
-        <Link to="contact">Contact</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="profile" element={<Profile />} />
-        <Route path="blog" element={<Blog />} />
-        <Route path="blog/:id" element={<BlogDetails />} />
-        <Route path="contact" element={<Contact />} />
-      </Routes>
-    </>
+    <div className="wrapper">
+      <header className="header">
+        <h1 className="header-text">MOVLIX</h1>
+        <input type="text" placeholder="Cari" className="header-search" onChange={(a) => search(a.target.value)} />
+      </header>
+      <div className="movie-wrapper">
+        <Card />
+      </div>
+    </div>
   );
 }
 
